@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-##before_action :set_list - ???
+before_action :set_list
 before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -11,7 +11,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def new
     @task = Task.new
-    render partial: "edit"  ##confirm
+    render partial: "edit"  
   end
 
   def edit
