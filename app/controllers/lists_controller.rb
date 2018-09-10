@@ -36,11 +36,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list.destroy
-<<<<<<< HEAD
     redirect_to board_path(@board.id)
-=======
-    redirect_to board_list_path
->>>>>>> -
   end
 
   private
