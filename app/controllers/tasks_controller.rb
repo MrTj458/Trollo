@@ -30,7 +30,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
     @task = @list.tasks.new(task_params)
     
     if @task.save
-      redirect_to board_path(@board)
+      redirect_to board_list_path(@board, @list)
     else
       render :new
     end
