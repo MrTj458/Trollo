@@ -5,7 +5,7 @@
 <ul>
   <% @board.lists.each do |list| %>
     <li>
-      <%= link_to list.name, board_list_path(@board.id, list.id) %>
+      <%= link_to list.name, board_list_path(@board.id, list.id) %> |
       <%= link_to 'Delete', board_list_path(@board.id, list.id), method: :delete %>
     </li>
   <% end %>

@@ -3,6 +3,9 @@
 <%= link_to 'Create New Board', new_board_path %>
 <ul>
   <% @boards.each do |board| %>
-    <li><%= link_to board.name, board %></li>
+    <li>
+      <%= link_to board.name, board %> |
+      <%= link_to 'Delete', board_path(board.id), method: :delete %>
+    </li>
   <% end %>
 </ul>
