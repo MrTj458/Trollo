@@ -1,8 +1,12 @@
 <h1><%= @board.name %></h1>
 <%= link_to "Edit Board", edit_board_path(@board.id) %>
 <h3>Lists</h3>
+<%= link_to 'New List', new_board_list_path(@board.id) %>
 <ul>
   <% @board.lists.each do |list| %>
-    <li><%= link_to list.name, board_list_path(@board.id, list.id) %></li>
+    <li>
+      <%= link_to list.name, board_list_path(@board.id, list.id) %>
+      <%= link_to 'Delete', board_list_path(@board.id, list.id), method: :delete %>
+    </li>
   <% end %>
 </ul>
