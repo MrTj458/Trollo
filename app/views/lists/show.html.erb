@@ -5,6 +5,6 @@
 </ul>
 
 <%= link_to 'Edit List', edit_board_list_path(@board, @list) %>
-<%= link_to 'New Task', new_list_task (@list) %>
-<%= link_to 'Delete Task', list_task_path [@list, @task], method: :delete %>
+<%= link_to 'New Task', new_list_task(@list) %>
+<%= link_to 'Delete Task', list_task_path(@list, @task), method: :delete %>
 <%= link_to 'Back To Lists', board_lists_path(@board) %>
