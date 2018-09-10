@@ -27,9 +27,10 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    @task = tasks.new(tasks_params)
+    @task = @list.tasks.new(task_params)
+    
     if @task.save
-      redirect_to tasks_path
+      redirect_to board_path(@board)
     else
       render :new
     end
