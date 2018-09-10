@@ -2,7 +2,7 @@
 <ul>
 <% @list.tasks.each do |task| %>
   <li>
-    <%= task.name %>
+    <%= task.task %>
     <%= link_to 'Delete Task', list_task_path(@list, task), method: :delete %>
   </li>
 <% end %>

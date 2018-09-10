@@ -11,11 +11,11 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def new
     @task = Task.new
-    render partial: "edit"  
+    
   end
 
   def edit
-    render partial: "edit"
+    
   end
 
   def update
@@ -30,7 +30,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
     @task = @list.tasks.new(task_params)
     
     if @task.save
-      redirect_to board_list_path(@board, @list)
+      redirect_to board_list_path(@list.board, @list)
     else
       render :new
     end
@@ -38,7 +38,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def destroy
     @task.destroy
-    redirect_to tasks_path
+    redirect_to board_list_path(@list.board, @list)
   end
 
   private
@@ -52,7 +52,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
   end
 
   def task_params
-    params.require(:task).permit(:name)
+    params.require(:task).permit(:task)
   end
 
 
