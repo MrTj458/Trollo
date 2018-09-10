@@ -1,11 +1,16 @@
 <h1>Boards</h1>
 <hr>
 <%= link_to 'Create New Board', new_board_path, class: 'ui button primary' %>
-<ul>
+<div class="ui cards">
   <% @boards.each do |board| %>
-    <li>
-      <%= link_to board.name, board %> |
-      <%= link_to 'Delete', board_path(board.id), method: :delete %>
-    </li>
+    <div class="card">
+      <div class="content">
+        <div class="header">
+          <%= link_to board.name, board %> |
+          <%= link_to 'Delete', board_path(board.id), method: :delete %>
+        </div>
+      </div>
+    <div class="meta">Friend</div>
+    </div>
   <% end %>
-</ul>
+</div>
