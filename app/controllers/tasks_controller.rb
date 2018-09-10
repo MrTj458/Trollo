@@ -15,7 +15,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
-    render_partial: "edit"
+    render partial: "edit"
   end
 
   def update
