@@ -33,6 +33,7 @@ class ListsController < ApplicationController
       redirect_to [@board, @list]
     else
       render :edit
+    end
   end
 
   def destroy
