@@ -1,6 +1,6 @@
 <h1>Boards</h1>
 <hr>
-<%= link_to 'Create New Board', new_board_path %>
+<%= link_to 'Create New Board', new_board_path, class: 'ui button primary' %>
 <ul>
   <% @boards.each do |board| %>
     <li>
