@@ -11,11 +11,9 @@ class ListsController < ApplicationController
 
   def new
     @list = @board.lists.new
-    render partial: "form"
   end
 
   def edit
-    render partial: "form"
   end
 
   def create
