@@ -12,8 +12,13 @@
 <% end %>
 
 <%= form_for @board do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, required: true %>
+  <div class="ui right pointing label">
+    Name
+  </div>
+  <div class="ui input focus">
+    <%= f.text_field :name, required: true, placeholder: 'Name' %>
+  </div>
   <br>
-  <%= f.submit %>
+  <br>
+  <%= f.submit class: 'ui button primary' %>
 <% end %>
