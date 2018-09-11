@@ -1,5 +1,12 @@
 <div class="ui menu">
-  <div class="header item">
-    <%= link_to 'Boards', boards_path %>
+  <div class="nav-style">
+    <button class="ui basic button" class="ui left floated button">
+      <%= link_to boards_path do %>
+      <i class="home icon"></i>
+    </button>
+    <% end %>
+    <div class="website-name">
+      <%= 'Trollo' %>
+    </div>
   </div>
 </div>
