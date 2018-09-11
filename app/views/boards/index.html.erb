@@ -6,9 +6,14 @@
   <% @boards.each do |board| %>
     <div class="<%= colors.sample %> card">
       <div class="content">
-      <%= link_to board_path(board.id), method: :delete, data: {confirm: "Are you sure you want to delete \"#{board.name}\"?"} do %>
-        <i class="right floated trash alternate outline icon"></i>
-      <% end %>
+        <%= link_to board_path(board.id), method: :delete, data: {confirm: "Are you sure you want to delete \"#{board.name}\"?"} do %>
+          <i class="right floated trash alternate outline icon"></i>
+        <% end %>
+
+        <%= link_to edit_board_path(board.id) do %>
+          <i class="right floated edit outline icon"></i>
+        <% end %>
+
         <div class="header">
           <%= board.name %>
         </div>
