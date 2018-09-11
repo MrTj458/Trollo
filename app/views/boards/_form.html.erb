@@ -1,3 +1,16 @@
+<% if @board.errors.any? %>
+  <div class="ui message red">
+    <div class="header">
+      Error
+    </div>
+    <ul class="list">
+      <% @board.errors.each do |error, message| %>
+        <li><%= error %>: <%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @board do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name, required: true %>
