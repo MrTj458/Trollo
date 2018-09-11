@@ -2,7 +2,7 @@
 <%= link_to 'Create New Board', new_board_path, class: 'ui button primary' %>
 <hr>
 <div class="ui cards">
-<% colors = ['red', 'blue', 'green', 'pruple', 'orange', 'yellow', 'olive', 'teal', 'violet', 'pink', 'grey', 'black'] %>
+  <% colors = ['red', 'blue', 'green', 'pruple', 'orange', 'yellow', 'olive', 'teal', 'violet', 'pink', 'grey', 'black'] %>
   <% @boards.each do |board| %>
     <div class="<%= colors.sample %> card">
       <div class="content">
