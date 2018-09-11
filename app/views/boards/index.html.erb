@@ -1,16 +1,36 @@
 <h1>Boards</h1>
-<hr>
 <%= link_to 'Create New Board', new_board_path, class: 'ui button primary' %>
+<hr>
 <div class="ui cards">
   <% @boards.each do |board| %>
     <div class="card">
       <div class="content">
+      <%= link_to board_path(board.id), method: :delete, data: {confirm: "Are you sure you want to delete \"#{board.name}\"?"} do %>
+        <i class="right floated trash alternate outline icon"></i>
+      <% end %>
         <div class="header">
-          <%= link_to board.name, board %> |
-          <%= link_to 'Delete', board_path(board.id), method: :delete %>
+          <%= board.name %>
+        </div>
+
+        <div class="description">
+          <% if board.lists.count > 0 %>
+            <ul>
+              <% board.lists.limit(2).each do |list| %>
+                <li><%= list.name %></li>
+              <% end %>
+              <li>...</li>
+            </ul>
+          <% else %>
+            This board does not have any lists yet.
+          <% end %>
         </div>
       </div>
-    <div class="meta">Friend</div>
+
+      <div class="extra content">
+        <div class="ui two buttons">
+          <%= link_to "View", board, class: 'ui button positive' %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
