@@ -2,8 +2,9 @@
 <%= link_to 'Create New Board', new_board_path, class: 'ui button primary' %>
 <hr>
 <div class="ui cards">
+<% colors = ['red', 'blue', 'green', 'pruple', 'orange', 'yellow', 'olive', 'teal', 'violet', 'pink', 'grey', 'black'] %>
   <% @boards.each do |board| %>
-    <div class="card">
+    <div class="<%= colors.sample %> card">
       <div class="content">
       <%= link_to board_path(board.id), method: :delete, data: {confirm: "Are you sure you want to delete \"#{board.name}\"?"} do %>
         <i class="right floated trash alternate outline icon"></i>
