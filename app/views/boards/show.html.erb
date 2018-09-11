@@ -1,12 +1,36 @@
-<h1><%= @board.name %></h1>
-<%= link_to "Edit Board", edit_board_path(@board.id) %>
-<h3>Lists</h3>
-<%= link_to 'New List', new_board_list_path(@board.id) %>
-<ul>
+<h1><%= @board.name %> <%= link_to edit_board_path(@board.id) do %> <i class="edit outline icon"></i> <% end %></h1>
+<h2>Lists</h2>
+<%= link_to 'New List', new_board_list_path(@board.id), class: 'ui button primary' %>
+<hr>
+<div class="ui cards">
+  <% colors = ['red', 'blue', 'green', 'pruple', 'orange', 'yellow', 'olive', 'teal', 'violet', 'pink', 'grey', 'black'] %>
   <% @board.lists.each do |list| %>
-    <li>
-      <%= link_to list.name, board_list_path(@board.id, list.id) %> |
-      <%= link_to 'Delete', board_list_path(@board.id, list.id), method: :delete %>
-    </li>
+    <div class="<%= colors.sample %> card">
+      <div class="content">
+        <%= link_to board_list_path(@board.id, list.id), method: :delete, data: {confirm: "Are you sure you want to delete \"#{list.name}\"?"} do %>
+          <i class="right floated trash alternate outline icon"></i>
+        <% end %>
+        <div class="header">
+          <%= list.name %>
+        </div>
+
+        <div class="description">
+          <% if list.tasks.count > 0 %>
+            <ul>
+              <% list.tasks.limit(2).each do |task| %>
+                <li><%= task.task %></li>
+              <% end %>
+              <li>...</li>
+            </ul>
+          <% else %>
+            This list does not have any tasks.
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="extra content">
+        <%= link_to 'View', board_list_path(@board.id, list.id), class: "ui fluid button positive" %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
