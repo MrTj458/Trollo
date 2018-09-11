@@ -1,5 +1,7 @@
 <h1>Boards</h1>
-<%= link_to 'Create New Board', new_board_path, class: 'ui button primary' %>
+<%= link_to new_board_path, class: 'ui button primary' do %>
+  <i class="plus icon"></i>New Board
+<% end %>
 <hr>
 <div class="ui grid">
   <% colors = ['red', 'blue', 'green', 'pruple', 'orange', 'yellow', 'olive', 'teal', 'violet', 'pink', 'grey', 'black'] %>
