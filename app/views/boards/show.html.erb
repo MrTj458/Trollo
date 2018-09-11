@@ -2,34 +2,36 @@
 <h2>Lists</h2>
 <%= link_to 'New List', new_board_list_path(@board.id), class: 'ui button primary' %>
 <hr>
-<div class="ui cards">
+<div class="ui grid">
   <% colors = ['red', 'blue', 'green', 'pruple', 'orange', 'yellow', 'olive', 'teal', 'violet', 'pink', 'grey', 'black'] %>
   <% @board.lists.each do |list| %>
-    <div class="<%= colors.sample %> card">
-      <div class="content">
-        <%= link_to board_list_path(@board.id, list.id), method: :delete, data: {confirm: "Are you sure you want to delete \"#{list.name}\"?"} do %>
-          <i class="right floated trash alternate outline icon"></i>
-        <% end %>
-        <div class="header">
-          <%= list.name %>
-        </div>
-
-        <div class="description">
-          <% if list.tasks.count > 0 %>
-            <ul>
-              <% list.tasks.limit(2).each do |task| %>
-                <li><%= task.task %></li>
-              <% end %>
-              <li>...</li>
-            </ul>
-          <% else %>
-            This list does not have any tasks.
+    <div class="sixteen wide mobile eight wide tablet four wide computer column">
+      <div class="<%= colors.sample %> ui card">
+        <div class="content">
+          <%= link_to board_list_path(@board.id, list.id), method: :delete, data: {confirm: "Are you sure you want to delete \"#{list.name}\"?"} do %>
+            <i class="right floated trash alternate outline icon"></i>
           <% end %>
+          <div class="header">
+            <%= list.name %>
+          </div>
+
+          <div class="description">
+            <% if list.tasks.count > 0 %>
+              <ul>
+                <% list.tasks.limit(2).each do |task| %>
+                  <li><%= task.task %></li>
+                <% end %>
+                <li>...</li>
+              </ul>
+            <% else %>
+              This list does not have any tasks.
+            <% end %>
+          </div>
         </div>
-      </div>
-      
-      <div class="extra content">
-        <%= link_to 'View', board_list_path(@board.id, list.id), class: "ui fluid button positive" %>
+        
+        <div class="extra content">
+          <%= link_to 'View', board_list_path(@board.id, list.id), class: "ui fluid button positive" %>
+        </div>
       </div>
     </div>
   <% end %>
