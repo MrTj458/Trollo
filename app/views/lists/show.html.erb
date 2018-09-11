@@ -5,8 +5,8 @@
 <ul>
 <% @list.tasks.each do |task| %>
   <li>
-    <%= task.task %>
-    <%= link_to 'Edit Task', edit_list_task_path(@list, task) %>
+    <div class="task-format" ><%= task.task %></div>
+    <%= link_to 'Edit Task', edit_list_task_path(@list, task) %> |
     <%= link_to 'Delete Task', list_task_path(@list, task), method: :delete %>
   </li>
 <% end %>
